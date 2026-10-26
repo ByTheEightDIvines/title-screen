@@ -22,6 +22,10 @@ add_mod(hero_of_legend_title FEATURES game SOURCES ${mod_sources}
     MOD_JSON "${CMAKE_CURRENT_BINARY_DIR}/mod.json" RES_DIR res OVERLAY_DIR overlay BUNDLE)
 target_include_directories(hero_of_legend_title PRIVATE vendor/miniaudio)
 if (WIN32)
+    if (MSVC)
+        # The pinned SDK uses __cplusplus to decide whether nullptr exists.
+        target_compile_options(hero_of_legend_title PRIVATE /Zc:__cplusplus)
+    endif ()
     target_link_libraries(hero_of_legend_title PRIVATE winmm)
 else ()
     target_link_libraries(hero_of_legend_title PRIVATE title_pcm_backend)

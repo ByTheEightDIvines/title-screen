@@ -1,9 +1,4 @@
 #include "global.h"
-// The legacy game headers map nullptr to the integer NULL macro. Keep the
-// real C++ keyword before including the modern MSVC standard library.
-#ifdef nullptr
-#undef nullptr
-#endif
 #include "f_op/f_op_actor_mng.h"
 #include "d/d_drawlist.h"
 // The title actor exposes its state-machine methods but keeps the animation controllers private.
