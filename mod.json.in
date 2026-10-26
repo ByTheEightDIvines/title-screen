@@ -1,0 +1,8 @@
+{
+  "id": "com.bytheeightdivines.herooflegendtitle",
+  "name": "Hero of Legend Title Screen",
+  "version": "1.3.1",
+  "author": "ByTheEightDivines",
+  "description": "ALttP-inspired title screen with synchronized logo, sword effects and custom music; castle moat, dense trees, snowy mountains, daytime sky and native animated water.",
+  "icon": "res/icon.png"
+}
