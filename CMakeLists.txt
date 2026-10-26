@@ -47,7 +47,9 @@ if (BUILD_TESTING)
     add_executable(test_music_return tools/test_music_return.cpp)
     add_test(NAME five_second_music_return COMMAND test_music_return)
     if (WIN32 AND NOT CMAKE_CROSSCOMPILING)
-        add_executable(test_portable_pcm tools/test_portable_pcm.cpp src/audio_portable.cpp)
+        # Manual hardware test of the non-Windows backend. Windows release
+        # bundles use waveOut, including ARM64; do not cross-build this test.
+        add_executable(test_portable_pcm EXCLUDE_FROM_ALL tools/test_portable_pcm.cpp src/audio_portable.cpp)
         target_include_directories(test_portable_pcm PRIVATE vendor/miniaudio)
         target_link_libraries(test_portable_pcm PRIVATE ole32 winmm uuid)
     endif ()
